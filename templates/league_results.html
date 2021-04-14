@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <title>League Results</title>
+        <link rel="stylesheet"
+              href="/static/css/style.css">
+
+</head>
+    <body>
+     <div class=container">
+        <h1> League Results</h1>
+        {% if data %}
+            <table>
+                <thead>
+                    <td>game_id</td>
+                    <td>home_team</td>
+                    <td>away_team</td>
+                    <td>home_goals</td>
+                    <td>away_goals</td>
+                    <td>result</td>
+                    <td>season</td>
+                </thead>
+
+                <tbody>
+                    {% for row in data %}
+                        <tr>
+                             <td><a href="/update_league_results/{{row[0]}}" >{{row[0]}}</td>
+                             <td> {{row[1]}}</td>
+                             <td> {{row[2]}}</td>
+                             <td> {{row[3]}}</td>
+                             <td> {{row[4]}}</td>
+                             <td> {{row[5]}}</td>
+                             <td> {{row[6]}}</td>
+
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <h1>no data</h1>
+        {% endif %}
+     </div>
+    </body>
+</html>
+
